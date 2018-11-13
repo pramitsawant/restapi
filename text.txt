@@ -1,0 +1,7 @@
+boy
+girl/SE
+home/
+house/SE123
+man/E
+country
+wind/ES

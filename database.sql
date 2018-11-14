@@ -1,41 +1,108 @@
 CREATE TABLE user(
-   user_id INT PRIMARY KEY AUTOINCREMENT,
+   user_id INTEGER PRIMARY KEY AUTOINCREMENT,
    username         TEXT    NOT NULL,
-   first_name         TEXT    NOT NULL,
-   last_name         TEXT    NOT NULL,
-   email         TEXT    NOT NULL,
-   dob         TEXT    NOT NULL
+   first_name         TEXT ,
+   last_name         TEXT ,
+   password         TEXT    NOT NULL,
+   email         TEXT NOT NULL,
+   dob         TEXT
 );
+
+INSERT INTO user (username,password,email) VALUES ('pramit','12345','pramitsawant11@gmail.com');
+INSERT INTO user (username,password,email) VALUES ('ajay','12345','ajay@gmail.com');
+INSERT INTO user (username,password,email) VALUES ('prajwal','12345','prajwal@gmail.com');
+INSERT INTO user (username,password,email) VALUES ('akshay','12345','akshay@gmail.com');
+INSERT INTO user (username,password,email) VALUES ('aksar','12345','aksar@gmail.com');
+INSERT INTO user (username,password,email) VALUES ('malik','12345','malik@gmail.com');
+INSERT INTO user (username,password,email) VALUES ('jarett','12345','jarett@gmail.com');
+INSERT INTO user (username,password,email) VALUES ('cajetan','12345','cajetan@gmail.com');
+INSERT INTO user (username,password,email) VALUES ('prateek','12345','prateek@gmail.com');
+INSERT INTO user (username,password,email) VALUES ('clinton','12345','clinton@gmail.com');
+INSERT INTO user (username,password,email) VALUES ('sachin','12345','sachin@gmail.com');
+INSERT INTO user (username,password,email) VALUES ('abhishek','12345','abhishek@gmail.com');
+INSERT INTO user (username,password,email) VALUES ('omkar','12345','omkar@gmail.com');
+INSERT INTO user (username,password,email) VALUES ('paresh','12345','paresh@gmail.com');
 
 CREATE TABLE merchant(
-   merchant_id INT PRIMARY KEY AUTOINCREMENT,
+   merchant_id INTEGER PRIMARY KEY AUTOINCREMENT,
    username         TEXT    NOT NULL,
-   first_name         TEXT    NOT NULL,
-   last_name         TEXT    NOT NULL,
+   first_name         TEXT  ,
+   last_name         TEXT  ,
    email         TEXT    NOT NULL,
-   dob         TEXT    NOT NULL
+   password         TEXT    NOT NULL,
+   dob         TEXT    
 );
 
+INSERT INTO merchant (username,password,email) VALUES ('datta','12345','datta@gmail.com');
+INSERT INTO merchant (username,password,email) VALUES ('martins','12345','martins@gmail.com');
+INSERT INTO merchant (username,password,email) VALUES ('popayes','12345','popayes@gmail.com');
+INSERT INTO merchant (username,password,email) VALUES ('borkar','12345','borkar@gmail.com');
+INSERT INTO merchant (username,password,email) VALUES ('sawant','12345','sawant@gmail.com');
+INSERT INTO merchant (username,password,email) VALUES ('vincent','12345','vincent@gmail.com');
+INSERT INTO merchant (username,password,email) VALUES ('kadar','12345','kadar@gmail.com');
+INSERT INTO merchant (username,password,email) VALUES ('oddel','12345','oddel@gmail.com');
+INSERT INTO merchant (username,password,email) VALUES ('rama','12345','rama@gmail.com');
+INSERT INTO merchant (username,password,email) VALUES ('ulhas','12345','ulhas@gmail.com');
+INSERT INTO merchant (username,password,email) VALUES ('gopal','12345','gopal@gmail.com');
+INSERT INTO merchant (username,password,email) VALUES ('dessi','12345','dessi@gmail.com');
+INSERT INTO merchant (username,password,email) VALUES ('dhoni','12345','dhoni@gmail.com');
+INSERT INTO merchant (username,password,email) VALUES ('ambani','12345','ambani@gmail.com');
+
+
+
+CREATE TABLE brand_category(
+   brand_category_id INTEGER PRIMARY KEY AUTOINCREMENT,
+   brand_category_name         TEXT    NOT NULL,
+   brand_category_description 
+);
+INSERT INTO brand_category (brand_category_name) VALUES ('Restaurant');
+INSERT INTO brand_category (brand_category_name) VALUES ('Real Estate');
+INSERT INTO brand_category (brand_category_name) VALUES ('Retail store');
+INSERT INTO brand_category (brand_category_name) VALUES ('Music');
+INSERT INTO brand_category (brand_category_name) VALUES ('Clothing');
+INSERT INTO brand_category (brand_category_name) VALUES ('Vehicle');
+
+
 CREATE TABLE brand(
-   brand_id INT PRIMARY KEY AUTOINCREMENT,
+   brand_id INTEGER PRIMARY KEY AUTOINCREMENT,
    brand_name         TEXT    NOT NULL,
-   brand_category         TEXT    NOT NULL,
+   brand_category         INTEGER    NOT NULL,
    FOREIGN KEY (brand_category) REFERENCES brand_category(brand_category_id)
 );
 
-CREATE TABLE brand_category(
-   brand_category_id INT PRIMARY KEY AUTOINCREMENT,
-   brand_category_name         TEXT    NOT NULL,
-   brand_category_description         TEXT    NOT NULL
-);
+INSERT INTO brand (brand_name,brand_category) VALUES ('Kadar Super Store',10);
+INSERT INTO brand (brand_name,brand_category) VALUES ('Borkar Super Store',10);
+INSERT INTO brand (brand_name,brand_category) VALUES ('Oddel Super Store',10);
+INSERT INTO brand (brand_name,brand_category) VALUES ('Popayes Fast Food',4);
+INSERT INTO brand (brand_name,brand_category) VALUES ('Martins Corner',4);
+INSERT INTO brand (brand_name,brand_category) VALUES ('Ullhas Food',4);
+INSERT INTO brand (brand_name,brand_category) VALUES ('Gopal Food',4);
+INSERT INTO brand (brand_name,brand_category) VALUES ('Rama Food',4);
+INSERT INTO brand (brand_name,brand_category) VALUES ('Dessi Cuppa',4);
+INSERT INTO brand (brand_name,brand_category) VALUES ('Jio Mobile Store',5);
+INSERT INTO brand (brand_name,brand_category) VALUES ('Dhoni Motors',9);
 
 CREATE TABLE assign_brand_to_merchant(
-   assign_id INT PRIMARY KEY AUTOINCREMENT,
+   assign_id INTEGER PRIMARY KEY AUTOINCREMENT,
    brand_id         INT    NOT NULL,
    merchant_id         INT    NOT NULL,
    FOREIGN KEY (brand_id) REFERENCES brand(brand_id),
    FOREIGN KEY (merchant_id) REFERENCES merchant(merchant_id)
 );
+
+INSERT INTO assign_brand_to_merchant (brand_id,merchant_id) VALUES (1,7);
+INSERT INTO assign_brand_to_merchant (brand_id,merchant_id) VALUES (2,4);
+INSERT INTO assign_brand_to_merchant (brand_id,merchant_id) VALUES (3,8);
+INSERT INTO assign_brand_to_merchant (brand_id,merchant_id) VALUES (4,3);
+INSERT INTO assign_brand_to_merchant (brand_id,merchant_id) VALUES (5,2);
+INSERT INTO assign_brand_to_merchant (brand_id,merchant_id) VALUES (6,10);
+INSERT INTO assign_brand_to_merchant (brand_id,merchant_id) VALUES (7,11);
+INSERT INTO assign_brand_to_merchant (brand_id,merchant_id) VALUES (8,9);
+INSERT INTO assign_brand_to_merchant (brand_id,merchant_id) VALUES (9,12);
+INSERT INTO assign_brand_to_merchant (brand_id,merchant_id) VALUES (10,14);
+INSERT INTO assign_brand_to_merchant (brand_id,merchant_id) VALUES (11,13);
+
+--- Till Here ---
 
 CREATE TABLE brand_outlet(
    brand_outlet_id INT PRIMARY KEY AUTOINCREMENT,

@@ -102,24 +102,59 @@ INSERT INTO assign_brand_to_merchant (brand_id,merchant_id) VALUES (9,12);
 INSERT INTO assign_brand_to_merchant (brand_id,merchant_id) VALUES (10,14);
 INSERT INTO assign_brand_to_merchant (brand_id,merchant_id) VALUES (11,13);
 
---- Till Here ---
+CREATE TABLE state(
+   state_id INTEGER PRIMARY KEY AUTOINCREMENT,
+   state_name         TEXT    NOT NULL
+   );
+INSERT INTO state (state_name) VALUES ('Andhra Pradesh')
+INSERT INTO state (state_name) VALUES ('Arunachal Pradesh')
+INSERT INTO state (state_name) VALUES ('Assam')
+INSERT INTO state (state_name) VALUES ('Bihar')
+INSERT INTO state (state_name) VALUES ('Chattisgarh')
+INSERT INTO state (state_name) VALUES ('Delhi')
+INSERT INTO state (state_name) VALUES ('Goa')
+INSERT INTO state (state_name) VALUES ('Gujarat')
+INSERT INTO state (state_name) VALUES ('Haryana')
+INSERT INTO state (state_name) VALUES ('Himachal Pradesh')
+INSERT INTO state (state_name) VALUES ('Jammu & Kashmir')
+INSERT INTO state (state_name) VALUES ('Jharkhand')
+INSERT INTO state (state_name) VALUES ('Karnataka')
+INSERT INTO state (state_name) VALUES ('Kerala')
+INSERT INTO state (state_name) VALUES ('Madhya Pradesh')
+INSERT INTO state (state_name) VALUES ('Maharashtra')
+INSERT INTO state (state_name) VALUES ('Manipur')
+INSERT INTO state (state_name) VALUES ('Meghalaya')
+INSERT INTO state (state_name) VALUES ('Mizoram')
+INSERT INTO state (state_name) VALUES ('Nagaland')
+INSERT INTO state (state_name) VALUES ('Orissa')
+INSERT INTO state (state_name) VALUES ('Punjab')
+INSERT INTO state (state_name) VALUES ('Rajasthan')
+INSERT INTO state (state_name) VALUES ('Sikkim')
+INSERT INTO state (state_name) VALUES ('Tamil Nadu')
+INSERT INTO state (state_name) VALUES ('Tripura')
+INSERT INTO state (state_name) VALUES ('Uttar Pradesh')
+INSERT INTO state (state_name) VALUES ('UttaraKhand')
+INSERT INTO state (state_name) VALUES ('West Bengal')   
 
 CREATE TABLE brand_outlet(
-   brand_outlet_id INT PRIMARY KEY AUTOINCREMENT,
+   brand_outlet_id INTEGER PRIMARY KEY AUTOINCREMENT,
    brand_outlet_name         TEXT    NOT NULL,
    brand_outlet_state         TEXT    NOT NULL,
-   brand_outlet_village         TEXT    NOT NULL,   
-   brand_outlet_location         TEXT    NOT NULL,
-   brand_outlet_zip_code         TEXT    NOT NULL
+   brand_outlet_location         TEXT,
+   brand_outlet_zip_code         TEXT    
 );
+INSERT INTO brand_outlet (brand_outlet_name,brand_outlet_state) VALUES ('Borkar Super Stores Benaulim',7)
+INSERT INTO brand_outlet (brand_outlet_name,brand_outlet_state) VALUES ('Borkar Super Stores Margao',7)
 
 CREATE TABLE assign_outlet_to_brand(
-   assign_id INT PRIMARY KEY AUTOINCREMENT,
-   brand_id         INT    NOT NULL,
-   brand_outlet_id         INT    NOT NULL,
+   assign_id INTEGER PRIMARY KEY AUTOINCREMENT,
+   brand_id         INTEGER    NOT NULL,
+   brand_outlet_id         INTEGER    NOT NULL,
    FOREIGN KEY (brand_id) REFERENCES brand(brand_id),
    FOREIGN KEY (brand_outlet_id) REFERENCES brand_outlet(brand_outlet_id)
 );
+
+--- Till Here ---
 
 CREATE TABLE brand_images(
    brand_image_id INT PRIMARY KEY AUTOINCREMENT,
